@@ -1,7 +1,7 @@
 -- Setup language servers.
 local lspconfig = require('lspconfig')
 lspconfig.pyright.setup {}
-lspconfig.tsserver.setup {}
+
 
 
 -- Global mappings.
@@ -37,3 +37,27 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end, opts)
   end,
 })
+
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
+lspconfig.tsserver.setup {
+    capabilities = capabilities
+}
+
+lspconfig.pyright.setup {
+    capabilities = capabilities
+}
+
+lspconfig.html.setup {
+    capabilities = capabilities
+}
+
+lspconfig.lua_ls.setup {
+    capabilities = capabilities
+}
+
+lspconfig.clangd.setup {
+    capabilities = capabilities
+}
+
+
